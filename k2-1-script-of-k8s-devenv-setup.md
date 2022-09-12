@@ -52,6 +52,12 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 containerd config default > ~/config.toml  
 ```
 然后编辑～config.toml去添加信息，具体内容请看视频中这个环节
+ [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+ 后添加：：：
+        [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+        endpoint = ["https://hub-mirrors.c.163.com","https://registry-1.docker.io"]
+
+
 ```sh  
 sudo mv ~/config.toml /etc/containerd/config.toml  
 sudo systemctl restart containerd  
